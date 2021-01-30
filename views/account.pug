@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    div.cubo
+        div.utente
+            h1 Benvenuto #{utente} 
+            h3 (#{mail})
+        br
+        div.blocco2
+            div.bloccosegnalazioni
+                h2 I miei caricamenti:
+                form(method='post',action='/account')
+                    input.button(type='submit', value='visualizza')
+                if segnalazioni!=null
+                    div.segnalazioni
+                        each segnalazione in segnalazioni
+                            div.oggetto
+                                div.testo
+                                    p regione:#{segnalazione.regione}
+                                    p città: #{segnalazione.citta}
+                                - var imgsrc = "/images/uploads/"
+                                - imgsrc+=segnalazione.path
+                                img(src=imgsrc)
+            div.bloccotasti
+                div.form
+                    form(method='get',action='/account/upload')
+                        button.button Upload
+                div.form
+                    form(method='post',action='/')    
+                        button.button Logout

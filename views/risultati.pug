@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    div.cubo
+        h2 Elenco segnalazioni:
+        br
+        div.segnalazioni
+            - var numero = 0;
+            each segnalazione in segnalazioni
+                - numero++;
+                div.oggetto
+                    p regione: #{segnalazione.regione}
+                    p citta: #{segnalazione.citta}
+                    p via: #{segnalazione.via}
+                    - var imgsrc = "/images/uploads/"
+                    - imgsrc+=segnalazione.path
+                    img(src=imgsrc)
+            h3 Ci sono #{numero} segnalazioni per questa regione!
+            
+                        

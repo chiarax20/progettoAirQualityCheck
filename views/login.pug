@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    div.cubo
+        h1 Accedi al tuo account
+        form.row(method='post',action='/account/login')
+            input(type='email', placeholder='email' name='email', required="required")
+            input(type='password', placeholder='Password', name='password', required="required")
+            div.cubo
+                input.button(type='submit', value='Accedi')

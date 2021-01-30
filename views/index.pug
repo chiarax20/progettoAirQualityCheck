@@ -1,0 +1,56 @@
+extends layout
+
+block content
+     div.cubo1
+          h1 Benvenuto sul sito che raccoglie segnalazioni sulla qualità dell'aria!
+          div.cubo2
+               img(src='/images/lampadina.jpg')
+               h2 Visualizza le segnalazione per la tua regione
+          div.formcerca
+               select(name='regione' placeholder="regione" id="reg")
+                    option(value='') 
+                    option(value='Tutte') Tutte
+                    option(value='Abruzzo') Abruzzo
+                    option(value='Basilicata') Basilicata
+                    option(value='Calabria') Calabria
+                    option(value='Campania') Campania
+                    option(value='Emilia') Emilia
+                    option(value='Friuli') Friuli
+                    option(value='Lazio') Lazio
+                    option(value='Liguria') Liguria
+                    option(value='Lombardia') Lombardia
+                    option(value='Marche') Marche
+                    option(value='Molise') Molise
+                    option(value='Piemonte') Piemonte
+                    option(value='Puglia') Puglia
+                    option(value='Sardegna') Sardegna
+                    option(value='Sicilia') Sicilia
+                    option(value='Toscana') Toscana
+                    option(value='Trentino') Trentino
+                    option(value='Umbira') Umbira
+                    option(value="Valledaosta") Valle d'aosta
+                    option(value="Veneto") Veneto
+
+               script.
+                    var urlmenu = document.getElementById( 'reg' )
+                    urlmenu.onchange = function() {
+                         regione = this.options[ this.selectedIndex ].value;
+                    }
+
+               script.
+                    var cerca = function() {
+                         if(regione=='Tutte'){
+                              window.open( '/risultati'); 
+                         }else {
+                              window.open( '/risultati/'+regione )
+                              console.log(regione);    
+                         }         
+                    }
+
+               button.button(onclick='cerca()') Cerca
+     
+
+        
+
+
+     

@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    div.cubo
+        h1 Crea il tuo Account
+            form(method='post',action='/registrazione')
+                div.form
+                    input(type='text', placeholder='username' name='name', required="required")
+                    input(type='email', placeholder='E-Mail', name='email', required="required")
+                    input(type='password', placeholder='Password', name='password', required="required", minlength="4")
+                    input(type='password', placeholder='Conferma Password' name='ripetipassword', required="required", minlength="4")
+                    input.button(type='submit', value='Registrati')

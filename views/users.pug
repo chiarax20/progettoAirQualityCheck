@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    div
+        h2 Elenco utenti
+        .row
+            each user in users
+                p name: #{user.name}
+                h1
+                    a(href=`/account/users/${user.email}`) #{user.email}
